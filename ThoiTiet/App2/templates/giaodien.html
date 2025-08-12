@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dữ liệu Môi trường (App2)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-4">
+    <h1 class="mb-4">📊 Dữ liệu môi trường</h1>
+
+    <!-- Form tìm kiếm và lọc -->
+    <form method="GET" class="row g-2 mb-3">
+    <div class="col-md-3">
+        <input type="text" name="name" value="{{ request.args.get('name', '') }}"
+               class="form-control" placeholder="Nhập tên để tìm">
+    </div>
+    <div class="col-md-3">
+        <input type="date" name="start_date" value="{{ request.args.get('start_date', '') }}"
+               class="form-control" placeholder="Ngày bắt đầu">
+    </div>  
+    <div class="col-md-3">
+        <input type="date" name="end_date" value="{{ request.args.get('end_date', '') }}"
+               class="form-control" placeholder="Ngày kết thúc">
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="btn btn-primary w-100">Lọc</button>
+    </div>
+    <div class="col-md-2">
+        <a href="/" class="btn btn-secondary w-100">Xóa lọc</a>
+    </div>
+    </form>
+
+    <!-- Bảng dữ liệu -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Thời gian</th>
+                <th>Nhiệt độ</th>
+                <th>Độ ẩm</th>
+                <th>Gió</th>
+                <th>Áp suất</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.STT }}</td>
+                <td>{{ row.Name }}</td>
+                <td>{{ row.Time }}</td>
+                <td>{{ row.Temperature }}</td>
+                <td>{{ row.Humidity }}</td>
+                <td>{{ row.Wind }}</td>
+                <td>{{ row.Pressure }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
