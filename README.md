@@ -64,5 +64,4 @@ Cả hai ứng dụng có thể giao tiếp qua **HTTP API** hoặc kết nối 
 - Học cách:
 - Kết nối Flask với Firebase Firestore.
 - Tạo API JSON để chia sẻ dữ liệu.
-- Hiển thị dữ liệu + biểu đồ Chart.js.
 - Lọc dữ liệu theo khoảng thời gian (từ ngày - đến ngày).
